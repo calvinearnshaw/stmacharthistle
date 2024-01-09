@@ -10,6 +10,10 @@ const Home = () => {
                 <h1>Since 2023.</h1>
                 <h2>The home of St Machar Thistle AFC.</h2>
             </div>
+            <div className="sponsors">
+                <h2>St Machar Thistle are proudly sponsored by</h2>
+                <img src={require('../static/Images/sponsors24.png')} alt="sponsors" />
+            </div>
             <div className="fixtures">
                 <h2>Upcoming Fixtures</h2>
                 <div className="fixture-entry">

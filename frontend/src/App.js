@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import NaviBar from "./components/NaviBar";
 import Home from "./pages/Home";
+import SMFooter from "./components/Footer";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
                         <Route exact path={"/"} element={<Home />} />
                     </Routes>
                 </div>
+                <SMFooter />
             </Router>
         </div>
     );
