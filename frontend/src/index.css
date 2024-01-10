@@ -152,6 +152,34 @@ body {
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
     }
+    .league-table {
+        padding: 60px 80px;
+        height: 550px;
+        & h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #851B87;
+            margin-bottom: 20px;
+        }
+        & .lg-t {
+            width: 50%;
+            font-size: 1.1rem;
+            text-align: center;
+            & tbody {
+                & tr {
+                    & th {
+                        padding: 10px;
+                    }
+                    & td {
+                        padding: 10px;
+                    }
+                }
+                & tr:nth-child(odd) {
+                    background-color: #eeeeee;
+                }
+            }
+        }
+    }
     .sponsors {
         height: 300px;
         padding: 80px;
@@ -242,36 +270,13 @@ body {
         padding: 80px;
         & span {
             display: flex;
-            gap: 60px;
+            gap: 20px;
             align-items: center;
             margin-bottom: 20px;
             & h2 {
                 font-size: 2rem;
                 font-weight: 600;
                 color: #851B87;
-            }
-            .news-link {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: #000000;
-                border-radius: 50px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-                height: 40px;
-                width: 125px;
-                text-decoration: none;
-                color: white;
-                transition: 0.3s;
-                & .arrow-fwd {
-                    display: none;
-                }
-                &:hover {
-                    & .arrow-fwd {
-                        display: inline;
-                        margin-left: 7px;
-                    }
-                    background-color: #851B87
-                }
             }
         }
         & .entries {
