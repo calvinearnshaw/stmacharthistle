@@ -51,6 +51,73 @@ const Home = () => {
                     <IoIosArrowForward className={"arrow-fwd"} />
                 </Link>
             </div>
+            <div className="latest-news">
+                <span>
+                    <h2>Latest News</h2>
+                    <Link to={"/news"} className={"news-link"}>
+                        <p>All News</p>
+                        <IoIosArrowForward className={"arrow-fwd"} />
+                    </Link>
+                </span>
+                <div className="entries">
+                    <div className="news-entry">
+                        <img src={require('../static/Images/heroimg.jpg')} alt="hero" />
+                        <div className="news-details">
+                            <h3>News Category</h3>
+                            <h2>News Title</h2>
+                        </div>
+                    </div>
+                    <div className="news-entry">
+                        <img src={require('../static/Images/heroimg.jpg')} alt="hero" />
+                        <div className="news-details">
+                            <h3>News Title</h3>
+                            <h2>News Title</h2>
+                        </div>
+                    </div>
+                    <div className="news-entry">
+                        <img src={require('../static/Images/heroimg.jpg')} alt="hero" />
+                        <div className="news-details">
+                            <h3>News Title</h3>
+                            <h2>News Title</h2>
+                        </div>
+                    </div>
+                    <div className="news-entry">
+                        <img src={require('../static/Images/heroimg.jpg')} alt="hero" />
+                        <div className="news-details">
+                            <h3>News Title</h3>
+                            <h2>News Title</h2>
+                        </div>
+                    </div>
+                    <div className="news-entry">
+                        <img src={require('../static/Images/heroimg.jpg')} alt="hero" />
+                        <div className="news-details">
+                            <h3>News Title</h3>
+                            <h2>News Title</h2>
+                        </div>
+                    </div>
+                    <div className="news-entry">
+                        <img src={require('../static/Images/heroimg.jpg')} alt="hero" />
+                        <div className="news-details">
+                            <h3>News Title</h3>
+                            <h2>News Title</h2>
+                        </div>
+                    </div>
+                    <div className="news-entry">
+                        <img src={require('../static/Images/heroimg.jpg')} alt="hero" />
+                        <div className="news-details">
+                            <h3>News Title</h3>
+                            <h2>News Title</h2>
+                        </div>
+                    </div>
+                    <div className="news-entry">
+                        <img src={require('../static/Images/heroimg.jpg')} alt="hero" />
+                        <div className="news-details">
+                            <h3>News Title</h3>
+                            <h2>News Title</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
