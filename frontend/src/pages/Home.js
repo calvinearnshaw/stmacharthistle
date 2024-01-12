@@ -2,8 +2,6 @@ import {FaPlaneDeparture} from "react-icons/fa";
 import {Link} from "react-router-dom";
 import {IoIosArrowForward} from "react-icons/io";
 
-
-
 const Home = () => {
     return (
         <div className="homepage">
@@ -221,6 +219,20 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="sponsors">
+                <h2>Club Sponsors</h2>
+                <span>
+                    <a href="https://www.facebook.com/theredlion.aberdeen" target="_blank" rel="noopener noreferrer">
+                        <img src={require('../static/Images/sponsors/RedLionAberdeen.png')} alt="The Red Lion, Aberdeen" />
+                    </a>
+                    <a href="https://www.facebook.com/flakesdiner" target="_blank" rel="noopener noreferrer">
+                        <img src={require('../static/Images/sponsors/FlakesDiner.png')} alt="Flakes Diner, Aberdeen" />
+                    </a>
+                    <a href={"https://www.facebook.com/InstantNeighbour"} target="_blank" rel="noopener noreferrer">
+                        <img src={require('../static/Images/sponsors/InstantNeighbour.png')} alt="Instant Neighbour, Aberdeen" />
+                    </a>
+                </span>
             </div>
         </div>
     )

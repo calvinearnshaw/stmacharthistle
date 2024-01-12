@@ -180,19 +180,6 @@ body {
             }
         }
     }
-    .sponsors {
-        height: 300px;
-        padding: 80px;
-        & h2 {
-            font-size: 1.3rem;
-            font-weight: 400;
-            margin-bottom: 30px;
-        }
-        & img {
-            width: 40%;
-            object-fit: contain;
-        }
-    }
     .fixtures {
         position: absolute;
         background-color: #851B87;
@@ -268,6 +255,7 @@ body {
     }
     .latest-news {
         padding: 80px;
+        margin-bottom: -80px;
         & span {
             display: flex;
             gap: 20px;
@@ -321,5 +309,23 @@ body {
             }
         }
     }
-
+    .sponsors {
+        height: max-content;
+        padding: 80px;
+        & h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #851B87;
+            margin-bottom: 30px;
+        }
+        & span {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: space-evenly;
+            & img {
+                height: 150px;
+            }
+        }
+    }
 }
