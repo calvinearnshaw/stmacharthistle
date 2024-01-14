@@ -226,10 +226,10 @@ const Home = () => {
                     <a href="https://www.facebook.com/theredlion.aberdeen" target="_blank" rel="noopener noreferrer">
                         <img src={require('../static/Images/sponsors/RedLionAberdeen.png')} alt="The Red Lion, Aberdeen" />
                     </a>
-                    <a href="https://www.facebook.com/flakesdiner" target="_blank" rel="noopener noreferrer">
+                    <a href="https://flakesdiner.com/" target="_blank" rel="noopener noreferrer">
                         <img src={require('../static/Images/sponsors/FlakesDiner.png')} alt="Flakes Diner, Aberdeen" />
                     </a>
-                    <a href={"https://www.facebook.com/InstantNeighbour"} target="_blank" rel="noopener noreferrer">
+                    <a href={"https://www.instantneighbour.co.uk/"} target="_blank" rel="noopener noreferrer">
                         <img src={require('../static/Images/sponsors/InstantNeighbour.png')} alt="Instant Neighbour, Aberdeen" />
                     </a>
                 </span>
