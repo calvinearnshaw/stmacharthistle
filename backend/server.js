@@ -14,8 +14,8 @@ const app = express();
 const whitelist = [
     'http://localhost:3000/',
     'http://localhost:3000',
-    'https://stmacharthistleapi.onrender.com/',
-    'https://stmacharthistleapi.onrender.com'
+    'https://stmacharthistle.onrender.com/',
+    'https://stmacharthistle.onrender.com'
 ];
 app.use(cors({
     origin: function (origin, callback) {
