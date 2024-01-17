@@ -12,8 +12,6 @@ const app = express();
 // Setup CORS middleware - **EXTREMELY IMPORTANT** - do NOT modify this section. This prevents access to the backend
 // unless the request is coming from one of the following URLs.
 const whitelist = [
-    'http://localhost:3000/',
-    'http://localhost:3000',
     'https://stmacharthistle.onrender.com/',
     'https://stmacharthistle.onrender.com'
 ];
