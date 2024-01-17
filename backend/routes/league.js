@@ -42,7 +42,7 @@ router.get('/', async (req, res) => {
                 });
             });
 
-            leagueTable = leagueTable.slice(0, 10);
+            leagueTable = leagueTable.slice(0, 9);
 
             res.json(leagueTable);
         } else {
