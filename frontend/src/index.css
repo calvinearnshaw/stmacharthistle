@@ -232,7 +232,7 @@ p {
     }
     .league-table {
         padding: 60px 80px;
-        height: 550px;
+        margin-bottom: -60px;
         & h2 {
             font-size: 2rem;
             font-weight: 600;

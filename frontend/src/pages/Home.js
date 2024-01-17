@@ -1,8 +1,11 @@
 import {FaPlaneDeparture} from "react-icons/fa";
 import {Link} from "react-router-dom";
 import {IoIosArrowForward} from "react-icons/io";
+import useFetch from "../hooks/useFetch";
 
 const Home = () => {
+    const {data: leagueTable, isPending, error} = useFetch("https://stmacharthistleapi.onrender.com/api/league");
+
     return (
         <div className="homepage">
             <div className="hero">
@@ -61,96 +64,40 @@ const Home = () => {
                             <th>GD</th>
                             <th>Pts</th>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Monymusk</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>-</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>FC Polska</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>-</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Meldrum United</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>-</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>AC Mill Inn Academy</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>-</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Laurencekirk West End</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>-</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Ellon Amateurs</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>-</td>
-                            <td>0</td>
-                        </tr>
-                        <tr className="lgPos">
-                            <td>7</td>
-                            <td>St Machar Thistle</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>-</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>Ferryhill</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>-</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>Byron Sports Club</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>-</td>
-                            <td>0</td>
-                        </tr>
+                        {error && (
+                            <tr>
+                                <td>{error}</td>
+                            </tr>
+                        )}
+                        {leagueTable && leagueTable.map((club) => {
+                            if (club.team === "St Machar Thistle") {
+                                return (
+                                    <tr style={{fontWeight: "bold"}}>
+                                        <td>{club.pos}</td>
+                                        <td>{club.team}</td>
+                                        <td>{club.played}</td>
+                                        <td>{club.win}</td>
+                                        <td>{club.draw}</td>
+                                        <td>{club.loss}</td>
+                                        <td>{club.goalDiff}</td>
+                                        <td>{club.pts}</td>
+                                    </tr>
+                                )
+                            } else {
+                                return (
+                                    <tr>
+                                        <td>{club.pos}</td>
+                                        <td>{club.team}</td>
+                                        <td>{club.played}</td>
+                                        <td>{club.win}</td>
+                                        <td>{club.draw}</td>
+                                        <td>{club.loss}</td>
+                                        <td>{club.goalDiff}</td>
+                                        <td>{club.pts}</td>
+                                    </tr>
+                                )
+                            }
+                        })}
                     </tbody>
                 </table>
             </div>
