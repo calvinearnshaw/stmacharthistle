@@ -34,7 +34,6 @@ app.use((req, res, next) => {
 });
 
 // Routes
-// TODO: Fill in these routes.
 app.use("/api/league", leagueRoute);
 
 // Connect to MongoDB and start server. We don't start the server unless we successfully connect to db.
