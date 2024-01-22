@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const leagueRoute = require('./routes/league');
+const newsRoute = require('./routes/newsRoute');
+const fixturesRoute = require('./routes/fixturesRoute');
 
 // Setup Express.JS app
 const app = express();
@@ -12,6 +14,8 @@ const app = express();
 // Setup CORS middleware - **EXTREMELY IMPORTANT** - do NOT modify this section. This prevents access to the backend
 // unless the request is coming from one of the following URLs.
 const whitelist = [
+    'http://localhost:3000',
+    'http://localhost:3000/',
     'https://stmacharthistle.onrender.com/',
     'https://stmacharthistle.onrender.com'
 ];
@@ -35,6 +39,8 @@ app.use((req, res, next) => {
 
 // Routes
 app.use("/api/league", leagueRoute);
+app.use("/api/news", newsRoute);
+app.use("/api/fixtures", fixturesRoute);
 
 // Connect to MongoDB and start server. We don't start the server unless we successfully connect to db.
 mongoose.connect(process.env.MONGO_URI)

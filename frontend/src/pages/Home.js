@@ -2,9 +2,12 @@ import {FaPlaneDeparture} from "react-icons/fa";
 import {Link} from "react-router-dom";
 import {IoIosArrowForward} from "react-icons/io";
 import useFetch from "../hooks/useFetch";
+import {Spinner} from "flowbite-react";
 
 const Home = () => {
-    const {data: leagueTable, isPending, error} = useFetch("https://stmacharthistleapi.onrender.com/api/league");
+    const {data: leagueTable, isPending: leaguePending, error: leagueError} = useFetch(process.env.REACT_APP_BACKEND + "/api/league");
+    const {data: news, isPending: newsPending, error: newsError} = useFetch(process.env.REACT_APP_BACKEND + "/api/news");
+    const {data: fixtures, isPending: fixturesPending, error: fixturesError} = useFetch(process.env.REACT_APP_BACKEND + "/api/fixtures");
 
     return (
         <div className="homepage">
@@ -15,36 +18,22 @@ const Home = () => {
             </div>
             <div className="fixtures">
                 <h2>Upcoming Fixtures</h2>
-                <div className="fixture-entry">
-                    <FaPlaneDeparture size={"30px"} color={"white"} className={"status"} />
-                    <div className="fixture-details">
-                        <h3>vs Laurencekirk West End</h3>
-                        <span>
-                            <p>01/01/2024</p>
-                            <p>Memorial Park</p>
-                        </span>
-                    </div>
-                </div>
-                <div className="fixture-entry">
-                    <FaPlaneDeparture size={"30px"} color={"white"} className={"status"} />
-                    <div className="fixture-details">
-                        <h3>vs Laurencekirk West End</h3>
-                        <span>
-                            <p>01/01/2024</p>
-                            <p>Memorial Park</p>
-                        </span>
-                    </div>
-                </div>
-                <div className="fixture-entry">
-                    <FaPlaneDeparture size={"30px"} color={"white"} className={"status"} />
-                    <div className="fixture-details">
-                        <h3>vs Laurencekirk West End</h3>
-                        <span>
-                            <p>01/01/2024</p>
-                            <p>Memorial Park</p>
-                        </span>
-                    </div>
-                </div>
+                {
+                    fixtures && fixtures.map((fixture) => {
+                        return (
+                            <div className="fixture-entry">
+                                <FaPlaneDeparture size={"30px"} color={"white"} className={"status"} />
+                                <div className="fixture-details">
+                                    <h3>vs {fixture.awayTeam}</h3>
+                                    <span>
+                                        <p>{fixture.date}</p>
+                                        <p>{fixture.venue}</p>
+                                    </span>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
                 <Link to={"/fixtures"} className={"fixtures-link"}>
                     View All Fixtures
                     <IoIosArrowForward className={"arrow-fwd"} />
@@ -52,8 +41,15 @@ const Home = () => {
             </div>
             <div className="league-table">
                 <h2>Aberdeenshire AFA Division 2 East</h2>
-                <table className="lg-t">
-                    <tbody>
+                {leaguePending && (
+                    <div className="loading">
+                        <Spinner color="purple" />
+                        <h3>Loading Content...</h3>
+                    </div>
+                )}
+                {!leaguePending && (
+                    <table className="lg-t">
+                        <tbody>
                         <tr>
                             <th>Pos</th>
                             <th>Club</th>
@@ -64,9 +60,9 @@ const Home = () => {
                             <th>GD</th>
                             <th>Pts</th>
                         </tr>
-                        {error && (
+                        {leagueError && (
                             <tr>
-                                <td>{error}</td>
+                                <td>{leagueError}</td>
                             </tr>
                         )}
                         {leagueTable && leagueTable.map((club) => {
@@ -98,8 +94,9 @@ const Home = () => {
                                 )
                             }
                         })}
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                )}
             </div>
             <div className="latest-news">
                 <span>
@@ -109,62 +106,19 @@ const Home = () => {
                     </Link>
                 </span>
                 <div className="entries">
-                    <div className="news-entry">
-                        <img src={require('../static/Images/heroimg.jpg')} alt="hero" />
-                        <div className="news-details">
-                            <h3>News Category</h3>
-                            <h2>News Title</h2>
-                        </div>
-                    </div>
-                    <div className="news-entry">
-                        <img src={require('../static/Images/heroimg.jpg')} alt="hero" />
-                        <div className="news-details">
-                            <h3>News Title</h3>
-                            <h2>News Title</h2>
-                        </div>
-                    </div>
-                    <div className="news-entry">
-                        <img src={require('../static/Images/heroimg.jpg')} alt="hero" />
-                        <div className="news-details">
-                            <h3>News Title</h3>
-                            <h2>News Title</h2>
-                        </div>
-                    </div>
-                    <div className="news-entry">
-                        <img src={require('../static/Images/heroimg.jpg')} alt="hero" />
-                        <div className="news-details">
-                            <h3>News Title</h3>
-                            <h2>News Title</h2>
-                        </div>
-                    </div>
-                    <div className="news-entry">
-                        <img src={require('../static/Images/heroimg.jpg')} alt="hero" />
-                        <div className="news-details">
-                            <h3>News Title</h3>
-                            <h2>News Title</h2>
-                        </div>
-                    </div>
-                    <div className="news-entry">
-                        <img src={require('../static/Images/heroimg.jpg')} alt="hero" />
-                        <div className="news-details">
-                            <h3>News Title</h3>
-                            <h2>News Title</h2>
-                        </div>
-                    </div>
-                    <div className="news-entry">
-                        <img src={require('../static/Images/heroimg.jpg')} alt="hero" />
-                        <div className="news-details">
-                            <h3>News Title</h3>
-                            <h2>News Title</h2>
-                        </div>
-                    </div>
-                    <div className="news-entry">
-                        <img src={require('../static/Images/heroimg.jpg')} alt="hero" />
-                        <div className="news-details">
-                            <h3>News Title</h3>
-                            <h2>News Title</h2>
-                        </div>
-                    </div>
+                    {news && news.map((article) => {
+                        return (
+                            <Link to={"/news/" + article._id} className={"news-link"}>
+                                <div className={"news-entry"}>
+                                    <img src={article.newsImage} alt={"news"} />
+                                    <div className={"news-details"}>
+                                        <h3>{article.newsType}</h3>
+                                        <h2>{article.newsTitle}</h2>
+                                    </div>
+                                </div>
+                            </Link>
+                        )
+                    })}
                 </div>
             </div>
             <div className="sponsors">

@@ -19,6 +19,7 @@
 
 # dotenv
 /backend/.env
+/frontend/.env
 
 # misc
 .DS_Store
